@@ -8,7 +8,7 @@ pipeline {
      } 
     stage('Cloner le GitHub'){
       steps {
-             sh 'git clone https://github.com/srcmed/depotOnline26.git' 
+             git branch: 'main', url: 'https://github.com/srcmed/depotOnline26.git'
          }
      } 
   }
