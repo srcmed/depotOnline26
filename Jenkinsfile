@@ -20,7 +20,7 @@ pipeline {
             sh 'sudo apt update'
             sh 'sudo  chmod  666 /var/run/docker.sock'
             sh 'sudo usermod -aG  docker $USER'
-            sh 'sudo systemctl status docker.service'
+            sh 'sudo systemctl restart docker.service'
          }
      }   
   }
