@@ -13,6 +13,7 @@ pipeline {
      }  
     stage('install Docker'){
       steps {
+            sh 'sudo apt remove docker.io docker-compose'
             sh 'sudo apt update' 
             sh 'sudo apt install apt-transport-https  ca-certificates  curl   software-properties-common   -y' 
             sh 'sudo apt install docker.io'
