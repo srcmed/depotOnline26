@@ -10,6 +10,17 @@ pipeline {
       steps {
              git branch: 'main', url: 'https://github.com/srcmed/depotOnline26.git'
          }
-     } 
+     }  
+    stage('install Docker'){
+      steps {
+            sh 'sudo update' 
+            sh 'sudo apt-transport-https  ca-certificates  curl   software-properties-common   -y' 
+            sh 'sudo apt install  docker.io'
+            sh 'sudo update'
+            sh 'sudo  chmod  666 /var/run/docker.stock'
+            sh 'sudo usermod -aG  docker $USER'
+            sh 'sudo systemctl status docker.service'
+         }
+     }   
   }
 }
