@@ -13,10 +13,10 @@ pipeline {
      }  
     stage('install Docker'){
       steps {
-            sh 'sudo update' 
-            sh 'sudo apt-transport-https  ca-certificates  curl   software-properties-common   -y' 
-            sh 'sudo apt install  docker.io'
-            sh 'sudo update'
+            sh 'sudo apt update' 
+            sh 'sudo apt install apt-transport-https  ca-certificates  curl   software-properties-common   -y' 
+            sh 'sudo apt install docker.io'
+            sh 'sudo apt update'
             sh 'sudo  chmod  666 /var/run/docker.stock'
             sh 'sudo usermod -aG  docker $USER'
             sh 'sudo systemctl status docker.service'
