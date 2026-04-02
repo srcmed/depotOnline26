@@ -20,12 +20,13 @@ pipeline {
             sh 'sudo apt update'
             sh 'sudo  chmod  666 /var/run/docker.sock'
             sh 'sudo usermod -aG  docker $USER'
-            sh 'sudo systemctl restart docker.service'
+            sh 'sudo systemctl start docker.service'
          }
      }  
       stage('build image docker') {
                          steps {
                              script {
+              sh 'docker rm mynginx'               
               sh 'docker build -t mynginx .'
                         }
               }
