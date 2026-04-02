@@ -22,6 +22,13 @@ pipeline {
             sh 'sudo usermod -aG  docker $USER'
             sh 'sudo systemctl restart docker.service'
          }
-     }   
+     }  
+      stage('build image docker') {
+                         steps {
+                             script {
+              sh 'docker build -t mynginx .'
+                        }
+              }
+      }
   }
 }
