@@ -13,6 +13,7 @@ pipeline {
      }  
     stage('install Docker'){
       steps {
+            sh 'sudo apt purge docker*'
             sh 'sudo apt autoremove docker.io docker-compose -y'
             sh 'sudo apt update' 
             sh 'sudo apt install apt-transport-https  ca-certificates  curl   software-properties-common   -y' 
@@ -27,7 +28,7 @@ pipeline {
       stage('build image docker') {
                          steps {
                              script {
-              sh 'sudo docker image rm "mynginx:latest"'               
+              // sh 'sudo docker image rm "mynginx:latest"'               
               sh 'sudo docker build -t "mynginx" .'
               sh 'sudo docker image ls'
                         }
