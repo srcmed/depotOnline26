@@ -28,7 +28,7 @@ pipeline {
       stage('build image docker') {
                          steps {
                              script {
-              sh 'sudo docker image rm "mynginx:latest"'               
+              sh 'sudo docker image rm -f "mynginx:latest"'               
               sh 'sudo docker build -t "mynginx:latest" .'
               sh 'sudo docker image ls'
                         }
