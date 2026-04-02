@@ -21,7 +21,7 @@ pipeline {
             sh 'sudo  chmod  666 /var/run/docker.sock'
             sh 'sudo usermod -aG  docker $USER'
             // sh 'sudo systemctl stop docker.service'
-           // sh 'sudo systemctl start docker.service'
+            sh 'sudo systemctl start docker.service'
          }
      }  
       stage('build image docker') {
